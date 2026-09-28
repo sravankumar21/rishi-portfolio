@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const baseUrl = "https://rishikmalleboina.dev";
+const baseUrl = "https://rishi-portfolio-roan.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),

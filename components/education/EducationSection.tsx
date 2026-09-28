@@ -1,4 +1,4 @@
-import { BadgeCheck, GraduationCap } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import { education } from "@/data/education";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
@@ -11,7 +11,7 @@ export function EducationSection() {
           align="center"
           eyebrow="Education"
           title="Formal hospitality training"
-          description="A professional qualification in hotel management and catering science, completed alongside multi-departmental training on the floor."
+          description="A professional qualification in hotel management and catering science, studied alongside multi-departmental training on the floor."
         />
 
         <div className="mx-auto mt-14 max-w-3xl space-y-6">
@@ -34,16 +34,7 @@ export function EducationSection() {
                   </span>
 
                   {edu.badge ? (
-                    <span
-                      className={
-                        edu.completed
-                          ? "mt-6 inline-flex items-center gap-1.5 rounded-full bg-emerald-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-emerald-400 ring-1 ring-emerald-400/30"
-                          : "mt-6 inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-brand ring-1 ring-brand/40"
-                      }
-                    >
-                      {edu.completed ? (
-                        <BadgeCheck className="h-3.5 w-3.5" aria-hidden="true" />
-                      ) : null}
+                    <span className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-brand ring-1 ring-brand/40">
                       {edu.badge}
                     </span>
                   ) : null}
@@ -60,16 +51,18 @@ export function EducationSection() {
                     <p className="mt-2 text-base text-muted">{edu.field}</p>
                   ) : null}
 
-                  <div className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-line pt-6">
-                    {edu.period ? (
-                      <span className="font-mono text-xs text-muted">{edu.period}</span>
-                    ) : null}
-                    {edu.score ? (
-                      <span className="rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-[11px] font-semibold text-brand">
-                        {edu.score}
-                      </span>
-                    ) : null}
-                  </div>
+                  {edu.period || edu.score ? (
+                    <div className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-line pt-6">
+                      {edu.period ? (
+                        <span className="font-mono text-xs text-muted">{edu.period}</span>
+                      ) : null}
+                      {edu.score ? (
+                        <span className="rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-[11px] font-semibold text-brand">
+                          {edu.score}
+                        </span>
+                      ) : null}
+                    </div>
+                  ) : null}
 
                   {edu.highlights.length > 0 ? (
                     <ul className="mx-auto mt-8 max-w-xl space-y-3 text-left">

@@ -132,10 +132,10 @@ export function Hero() {
               className="absolute -inset-6 -z-10 rounded-[2rem] bg-brand/15 blur-3xl"
             />
             <div className="glass relative overflow-hidden rounded-3xl p-2">
-              <div className="relative aspect-video overflow-hidden rounded-2xl">
+              <div className="relative aspect-square overflow-hidden rounded-2xl">
                 <Image
                   src={profile.photo}
-                  alt={`Black-and-white portrait of ${profile.name}`}
+                  alt={`Portrait of ${profile.name}`}
                   fill
                   priority
                   sizes="(max-width: 1024px) 32rem, 44rem"
