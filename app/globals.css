@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-canvas: var(--base);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+
+  --color-fill-weak: var(--fill-weak);
+  --color-fill-soft: var(--fill-soft);
+  --color-fill-strong: var(--fill-strong);
+  --color-fill-hover: var(--fill-hover);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-float: float 9s ease-in-out infinite;
+  --animate-float-delayed: float 11s ease-in-out 1.5s infinite;
+  --animate-pulse-glow: pulse-glow 7s ease-in-out infinite;
+}
+
+:root {
+  --base: #f4f6fb;
+  --surface: #ecedf5;
+  --elevated: #ffffff;
+  --line: rgba(15, 23, 42, 0.1);
+  --line-strong: rgba(15, 23, 42, 0.18);
+  --fg: #0f172a;
+  --muted: #475569;
+  --faint: #64748b;
+  --brand: #6756ea;
+  --brand-2: #0891b2;
+
+  --fill-weak: rgba(15, 23, 42, 0.04);
+  --fill-soft: rgba(15, 23, 42, 0.06);
+  --fill-strong: rgba(15, 23, 42, 0.1);
+  --fill-hover: rgba(15, 23, 42, 0.08);
+
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-strong-bg: rgba(255, 255, 255, 0.86);
+
+  --text-grad-a: #0f172a;
+  --text-grad-c: #0e7490;
+
+  --hero-radial-a: #dfe3f5;
+  --bg-grid-opacity: 0.07;
+
+  color-scheme: light;
+}
+
+/* Dark theme — active via data-theme="dark" on <html> */
+:root[data-theme="dark"] {
+  --base: #06070d;
+  --surface: #0b0d16;
+  --elevated: #11141f;
+  --line: rgba(148, 163, 184, 0.14);
+  --line-strong: rgba(148, 163, 184, 0.28);
+  --fg: #e9ebf3;
+  --muted: #a0a8bd;
+  --faint: #69718a;
+  --brand: #8b7cf8;
+  --brand-2: #5ce1f2;
+
+  --fill-weak: rgba(255, 255, 255, 0.04);
+  --fill-soft: rgba(255, 255, 255, 0.06);
+  --fill-strong: rgba(255, 255, 255, 0.1);
+  --fill-hover: rgba(255, 255, 255, 0.1);
+
+  --glass-bg: color-mix(in srgb, #ffffff 6%, transparent);
+  --glass-strong-bg: color-mix(in srgb, #ffffff 9%, transparent);
+
+  --text-grad-a: #ffffff;
+  --text-grad-c: var(--brand-2);
+
+  --hero-radial-a: #131733;
+  --bg-grid-opacity: 0.05;
+
+  color-scheme: dark;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -16px, 0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  html,
+  body {
+    background-color: var(--base);
+    color: var(--fg);
+  }
+
+  body {
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--brand) 40%, transparent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--brand) 80%, white);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Glass surfaces — used selectively (nav, floating cards, modals). */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid var(--line);
+  }
+
+  .glass-strong {
+    background: var(--glass-strong-bg);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid var(--line-strong);
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      100deg,
+      var(--text-grad-a) 20%,
+      color-mix(in srgb, var(--brand) 65%, var(--text-grad-a)) 50%,
+      var(--text-grad-c) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .card-hover {
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.35s ease,
+      background-color 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--brand) 45%, transparent);
+    box-shadow:
+      0 24px 48px -24px rgb(0 0 0 / 0.5),
+      0 0 0 1px color-mix(in srgb, var(--brand) 18%, transparent),
+      0 0 48px -12px color-mix(in srgb, var(--brand) 24%, transparent);
+  }
+
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .glow-brand {
+    box-shadow: 0 0 40px -8px color-mix(in srgb, var(--brand) 55%, transparent);
+  }
+
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+}
+
+/* Slim, subtle scrollbar */
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--faint) 55%, transparent) transparent;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--faint) 50%, transparent);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--faint) 75%, transparent);
+}
