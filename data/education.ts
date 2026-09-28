@@ -4,9 +4,12 @@ export interface Education {
   degree: string;
   field?: string;
   period: string;
-  score: string;
-  /** Optional pill on the card, e.g. "Honors", "In progress". */
+  /** Optional right-hand pill, e.g. a grade. Omit when there's nothing to show. */
+  score?: string;
+  /** Optional pill above the title. */
   badge?: string;
+  /** Renders the "Completed" treatment (emerald + check) instead of neutral. */
+  completed?: boolean;
   highlights: string[];
 }
 
@@ -16,9 +19,9 @@ export const education: Education[] = [
     shortInstitution: "OUM · Institute of Professional Development",
     degree: "Executive Diploma",
     field: "Hotel Management & Catering Science",
-    period: "— Present",
-    score: "In progress",
-    badge: "Ongoing",
+    period: "Completed",
+    badge: "Completed",
+    completed: true,
     highlights: [
       "Professional qualification covering hotel operations, food production and catering science",
       "Practical grounding in kitchen management, beverage service and front-office hospitality",
