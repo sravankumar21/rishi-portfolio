@@ -17,7 +17,7 @@ export function EducationSection() {
         <div className="mx-auto mt-14 max-w-3xl space-y-6">
           {education.map((edu, index) => (
             <Reveal key={edu.institution} delay={index * 0.08}>
-              <article className="card-hover glass relative overflow-hidden rounded-3xl px-6 py-10 text-center sm:px-12 sm:py-12">
+              <article className="card-surface card-hover relative overflow-hidden rounded-3xl px-6 py-10 text-center sm:px-12 sm:py-12">
                 {/* soft ambient glows */}
                 <div
                   aria-hidden="true"
@@ -39,7 +39,7 @@ export function EducationSection() {
                     </span>
                   ) : null}
 
-                  <p className="mt-6 font-mono text-[11px] uppercase leading-relaxed tracking-[0.2em] text-brand">
+                  <p className="mt-6 text-[12px] font-medium uppercase leading-relaxed tracking-[0.18em] text-brand">
                     {edu.institution}
                   </p>
 
@@ -54,7 +54,7 @@ export function EducationSection() {
                   {edu.period || edu.score ? (
                     <div className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-line pt-6">
                       {edu.period ? (
-                        <span className="font-mono text-xs text-muted">{edu.period}</span>
+                        <span className="text-xs tabular-nums text-muted">{edu.period}</span>
                       ) : null}
                       {edu.score ? (
                         <span className="rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-[11px] font-semibold text-brand">

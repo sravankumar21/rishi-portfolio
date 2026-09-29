@@ -40,7 +40,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       aria-checked={theme === "light"}
       aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
       onClick={toggle}
-      className={`glass flex h-10 w-10 items-center justify-center rounded-full text-fg transition-colors hover:text-brand ${className}`}
+      className={`flex h-10 w-10 items-center justify-center rounded-full border border-line text-fg transition-colors hover:text-brand ${className}`}
     >
       {theme === "dark" ? <Sun className="h-[18px] w-[18px]" /> : <Moon className="h-[18px] w-[18px]" />}
       <span className="sr-only">Toggle light and dark theme</span>

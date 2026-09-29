@@ -37,12 +37,12 @@ function ExpCard({ exp, index }: ExpCardProps) {
 
       {/* Time rail label */}
       <div className="absolute left-0 top-8 hidden w-32 -translate-y-1/2 text-right sm:block">
-        <p className="font-mono text-xs text-muted">{exp.period}</p>
+        <p className="text-xs tabular-nums text-muted">{exp.period}</p>
       </div>
 
       <div
         className={cn(
-          "card-hover glass rounded-2xl",
+          "card-surface card-hover rounded-2xl",
           open && "border-line-strong",
         )}
       >
@@ -80,7 +80,7 @@ function ExpCard({ exp, index }: ExpCardProps) {
           </div>
 
           <p className="flex flex-wrap items-center gap-x-4 gap-y-1 pl-[46px] text-xs text-faint">
-            <span className="font-mono sm:hidden">{exp.period}</span>
+            <span className="tabular-nums sm:hidden">{exp.period}</span>
             <span className="inline-flex items-center gap-1">
               <MapPin className="h-3 w-3" />
               {exp.location}

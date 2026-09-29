@@ -16,18 +16,22 @@ export function SectionHeading({
   align = "center",
   className,
 }: SectionHeadingProps) {
+  const centered = align === "center";
   return (
     <div
       className={cn(
-        "flex flex-col gap-4",
-        align === "center" ? "items-center text-center" : "items-start text-left",
+        "flex flex-col gap-5",
+        centered ? "items-center text-center" : "items-start text-left",
         className,
       )}
     >
       <Reveal>
-        <span className="inline-flex items-center gap-2 rounded-full border border-line bg-fill-weak px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-brand">
-          <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden="true" />
+        <span className="inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.28em] text-brand">
+          {centered ? (
+            <span className="h-px w-8 bg-brand/45" aria-hidden="true" />
+          ) : null}
           {eyebrow}
+          <span className="h-px w-8 bg-brand/45" aria-hidden="true" />
         </span>
       </Reveal>
       <Reveal delay={0.06}>
@@ -40,7 +44,7 @@ export function SectionHeading({
           <p
             className={cn(
               "max-w-2xl text-base leading-relaxed text-muted",
-              align === "center" && "mx-auto",
+              centered && "mx-auto",
             )}
           >
             {description}

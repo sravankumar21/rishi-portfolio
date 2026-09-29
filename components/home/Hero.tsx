@@ -28,7 +28,7 @@ export function Hero() {
           >
             <motion.span
               variants={fadeUp}
-              className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium text-muted"
+              className="card-surface inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium text-muted"
             >
               <ChefHat className="h-3.5 w-3.5 text-brand" />
               Garde Manger · Plating · Carving · Banquets
@@ -99,7 +99,7 @@ export function Hero() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="glass flex h-10 w-10 items-center justify-center rounded-full text-muted transition-all duration-300 hover:-translate-y-0.5 hover:text-fg"
+                      className="card-surface flex h-10 w-10 items-center justify-center rounded-full text-muted transition-all duration-300 hover:-translate-y-0.5 hover:text-fg"
                     >
                       <Icon className="h-[18px] w-[18px]" />
                     </a>
@@ -109,7 +109,7 @@ export function Hero() {
             ) : null}
 
             <motion.div variants={fadeUp} className="mt-10 hidden flex-col items-center gap-2 sm:flex lg:items-start">
-              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-faint">
+              <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-faint">
                 scroll
               </span>
               <motion.span
@@ -131,7 +131,7 @@ export function Hero() {
               aria-hidden="true"
               className="absolute -inset-6 -z-10 rounded-[2rem] bg-brand/15 blur-3xl"
             />
-            <div className="glass relative overflow-hidden rounded-3xl p-2">
+            <div className="card-surface relative overflow-hidden rounded-3xl p-2">
               <div className="relative aspect-square overflow-hidden rounded-2xl">
                 <Image
                   src={profile.photo}

@@ -68,7 +68,7 @@ export function ContactSection() {
           {/* Channels */}
           <Reveal className="flex flex-col gap-4">
             {channels.map((channel) => (
-              <div key={channel.label} className="glass rounded-2xl p-5">
+              <div key={channel.label} className="card-surface rounded-2xl p-5">
                 <div className="flex items-center gap-3">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand/30 to-brand-2/20 text-brand">
                     <channel.icon className="h-4 w-4" />
@@ -91,7 +91,7 @@ export function ContactSection() {
             ))}
 
             {socials.length > 0 ? (
-              <div className="glass rounded-2xl p-5">
+              <div className="card-surface rounded-2xl p-5">
                 <p className="text-xs uppercase tracking-wide text-faint">Elsewhere</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {socials.map((social) => (
@@ -109,7 +109,7 @@ export function ContactSection() {
               </div>
             ) : null}
 
-            <div className="glass rounded-2xl border-brand/25 p-5">
+            <div className="card-surface rounded-2xl border-brand/25 p-5">
               <p className="text-sm font-medium text-fg">Based in {profile.location}</p>
               <p className="mt-1.5 text-xs leading-relaxed text-muted">
                 Hiring for a kitchen role, or need a chef for an event? Get in touch — my
@@ -126,7 +126,7 @@ export function ContactSection() {
           <Reveal delay={0.1}>
             <form
               onSubmit={handleSubmit}
-              className="glass flex h-full flex-col gap-4 rounded-2xl p-6 sm:p-7"
+              className="card-surface flex h-full flex-col gap-4 rounded-2xl p-6 sm:p-7"
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="flex flex-col gap-1.5">
