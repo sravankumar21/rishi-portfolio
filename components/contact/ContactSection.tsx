@@ -6,12 +6,13 @@ import { profile } from "@/data/profile";
 import { socials } from "@/data/social";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { cn } from "@/lib/utils";
 
 const inputClasses =
   "w-full rounded-2xl border border-line bg-fill-weak px-4 py-3 text-sm text-fg placeholder:text-faint transition-colors focus:border-brand/70 focus:outline-none focus:ring-2 focus:ring-brand/25";
 
 export function ContactSection() {
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
 
   const update = (field: keyof typeof form) => (
@@ -19,10 +20,10 @@ export function ContactSection() {
   ) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
   const compose = () => {
-    const subject = encodeURIComponent(form.subject || "Hello from your portfolio");
+    const subject = encodeURIComponent("Enquiry");
     const body = encodeURIComponent(
-      `${form.message && `Hi ${profile.firstName},\n\n${form.message}\n\n`}${
-        form.name ? `- ${form.name}` : ""
+      `${form.message ? `Hello,\n\n${form.message}\n\n` : ""}${
+        form.name ? form.name : ""
       }${form.email ? ` · ${form.email}` : ""}`,
     );
     return `mailto:${profile.email}?subject=${subject}&body=${body}`;
@@ -48,7 +49,7 @@ export function ContactSection() {
       icon: Phone,
     },
     {
-      label: "Location",
+      label: "Based in",
       value: profile.location,
       href: undefined,
       icon: MapPin,
@@ -59,22 +60,30 @@ export function ContactSection() {
     <section id="contact" className="relative scroll-mt-20 pb-16 pt-14 sm:pt-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
-          eyebrow="Contact"
-          title="Let's build something together"
-          description="Have a role, project or idea in mind? My inbox is open - I usually reply within a day."
+          eyebrow="Enquiries"
+          title="Work with me"
+          description="Open to commis chef roles in UAE hotels and resorts, and to private event work across Sharjah and Dubai. Tell me about your kitchen or occasion and I usually reply within a day."
         />
 
         <div className="mx-auto mt-16 grid max-w-5xl gap-6 lg:grid-cols-[1fr_1.4fr]">
-          {/* Channels */}
-          <Reveal className="flex flex-col gap-4">
-            {channels.map((channel) => (
-              <div key={channel.label} className="card-surface rounded-2xl p-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand/30 to-brand-2/20 text-brand">
-                    <channel.icon className="h-4 w-4" />
+          {/* Details */}
+          <Reveal>
+            <ul className="card-surface flex flex-col rounded-2xl px-6 sm:px-7">
+              {channels.map((channel, i) => (
+                <li
+                  key={channel.label}
+                  className={cn(
+                    "flex items-center gap-4 py-5",
+                    i > 0 && "border-t border-line",
+                  )}
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+                    <channel.icon className="h-4 w-4" aria-hidden="true" />
                   </span>
                   <div className="min-w-0">
-                    <p className="text-xs uppercase tracking-wide text-faint">{channel.label}</p>
+                    <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-faint">
+                      {channel.label}
+                    </p>
                     {channel.href ? (
                       <a
                         href={channel.href}
@@ -86,40 +95,36 @@ export function ContactSection() {
                       <p className="truncate text-sm font-medium text-fg">{channel.value}</p>
                     )}
                   </div>
-                </div>
-              </div>
-            ))}
+                </li>
+              ))}
 
-            {socials.length > 0 ? (
-              <div className="card-surface rounded-2xl p-5">
-                <p className="text-xs uppercase tracking-wide text-faint">Elsewhere</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {socials.map((social) => (
+              {socials.map((social, i) => (
+                <li
+                  key={social.label}
+                  className={cn(
+                    "flex items-center gap-4 py-5",
+                    i > 0 && "border-t border-line",
+                  )}
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+                    <MessageSquare className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-faint">
+                      {social.label}
+                    </p>
                     <a
-                      key={social.label}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-full border border-line px-3 py-1.5 text-xs font-medium text-muted transition-colors hover:border-brand/50 hover:text-fg"
+                      className="block truncate text-sm font-medium text-fg transition-colors hover:text-brand"
                     >
-                      {social.label}
+                      @{social.handle.replace(/^@/, "")}
                     </a>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-
-            <div className="card-surface rounded-2xl border-brand/25 p-5">
-              <p className="text-sm font-medium text-fg">Based in {profile.location}</p>
-              <p className="mt-1.5 text-xs leading-relaxed text-muted">
-                Hiring for a kitchen role, or need a chef for an event? Get in touch - my
-                full resume is available to download via the{" "}
-                <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
-                  resume link
-                </a>
-                .
-              </p>
-            </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </Reveal>
 
           {/* Form */}
@@ -138,6 +143,7 @@ export function ContactSection() {
                       value={form.name}
                       onChange={update("name")}
                       placeholder="Your name"
+                      autoComplete="name"
                       className={`${inputClasses} pl-10`}
                     />
                   </span>
@@ -152,6 +158,7 @@ export function ContactSection() {
                       value={form.email}
                       onChange={update("email")}
                       placeholder="you@example.com"
+                      autoComplete="email"
                       className={`${inputClasses} pl-10`}
                     />
                   </span>
@@ -159,27 +166,13 @@ export function ContactSection() {
               </div>
 
               <label className="flex flex-col gap-1.5">
-                <span className="text-xs font-medium text-muted">Subject</span>
-                <span className="relative">
-                  <MessageSquare className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-faint" />
-                  <input
-                    required
-                    value={form.subject}
-                    onChange={update("subject")}
-                    placeholder="What's this about?"
-                    className={`${inputClasses} pl-10`}
-                  />
-                </span>
-              </label>
-
-              <label className="flex flex-col gap-1.5">
                 <span className="text-xs font-medium text-muted">Message</span>
                 <textarea
                   required
-                  rows={5}
+                  rows={6}
                   value={form.message}
                   onChange={update("message")}
-                  placeholder="Tell me about the opportunity or idea…"
+                  placeholder="The role, the event, or the kitchen you're running."
                   className={`${inputClasses} resize-none`}
                 />
               </label>
@@ -189,14 +182,15 @@ export function ContactSection() {
                   type="submit"
                   className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand text-sm font-semibold text-on-brand shadow-brand transition-all duration-300 hover:bg-brand/90 active:scale-[0.98]"
                 >
-                  <Send className="h-4 w-4" />
-                  {sent ? "Opening your email client…" : "Send message"}
+                  <Send className="h-4 w-4" aria-hidden="true" />
+                  {sent ? "Opening your email…" : "Send email"}
                 </button>
                 <p className="text-center text-xs text-faint">
-                  Sends via your email client - or reach me directly at{" "}
+                  This opens your email app with the message ready. You can also write to{" "}
                   <a href={`mailto:${profile.email}`} className="text-brand hover:underline">
                     {profile.email}
-                  </a>
+                  </a>{" "}
+                  directly.
                 </p>
               </div>
             </form>
