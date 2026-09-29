@@ -11,6 +11,7 @@
   --color-faint: var(--faint);
   --color-brand: var(--brand);
   --color-brand-2: var(--brand-2);
+  --color-on-brand: var(--on-brand);
 
   --color-fill-weak: var(--fill-weak);
   --color-fill-soft: var(--fill-soft);
@@ -27,54 +28,62 @@
 }
 
 :root {
-  /* Warm ivory / bone paper rather than cool slate. */
-  --base: #faf7f1;
-  --surface: #f2ece2;
-  --elevated: #fffdf9;
-  --line: rgba(64, 48, 38, 0.12);
-  --line-strong: rgba(64, 48, 38, 0.22);
-  --fg: #241f1a;
-  --muted: #6b5f53;
-  --faint: #7a6e60;
-  /* Burnished brass + olive, in place of violet/cyan. */
-  --brand: #8f5c2e;
-  --brand-2: #5f6b4f;
+  /* Cool paper, faintly green, so the emerald reads as the only accent. */
+  --base: #f6f8f6;
+  --surface: #edf1ee;
+  --elevated: #ffffff;
+  --line: rgba(16, 42, 30, 0.12);
+  --line-strong: rgba(16, 42, 30, 0.22);
+  --fg: #101a14;
+  --muted: #4c5a52;
+  --faint: #65756c;
+  /* The brief called for #029352. That is 3.74:1 as text on this base and
+     3.96:1 under a white label, so it cannot be the token that carries
+     body text and the primary button. #027a47 is the same emerald one
+     step darker and clears 4.5:1 for both jobs. #029352 is kept as
+     --brand-2, the lighter companion. */
+  --brand: #027a47;
+  --brand-2: #0a8253;
+  --on-brand: #ffffff;
 
-  --fill-weak: rgba(64, 48, 38, 0.045);
-  --fill-soft: rgba(64, 48, 38, 0.07);
-  --fill-strong: rgba(64, 48, 38, 0.12);
-  --fill-hover: rgba(64, 48, 38, 0.09);
+  --fill-weak: rgba(16, 42, 30, 0.045);
+  --fill-soft: rgba(16, 42, 30, 0.07);
+  --fill-strong: rgba(16, 42, 30, 0.12);
+  --fill-hover: rgba(16, 42, 30, 0.09);
 
-  --glass-bg: rgba(255, 253, 249, 0.78);
-  --glass-strong-bg: rgba(255, 253, 249, 0.9);
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-strong-bg: rgba(255, 255, 255, 0.9);
 
-  --hero-radial-a: #f0e4d2;
+  --hero-radial-a: #dceadf;
 
   color-scheme: light;
 }
 
-/* Dark theme - warm charcoal & espresso rather than blue-black. */
+/* Dark theme - deep green-black. The brand flips to a bright emerald,
+   so every label sitting on --brand uses --on-brand, which flips to a
+   near-black ink rather than staying white. */
 :root[data-theme="dark"] {
-  --base: #12100e;
-  --surface: #191613;
-  --elevated: #221e1a;
-  --line: rgba(214, 195, 173, 0.14);
-  --line-strong: rgba(214, 195, 173, 0.28);
-  --fg: #f2ece2;
-  --muted: #b8ab9a;
-  --faint: #938676;
-  --brand: #c98f4e;
-  --brand-2: #8a9768;
+  --base: #0a120d;
+  --surface: #0f1a13;
+  --elevated: #14231a;
+  --line: rgba(180, 220, 196, 0.14);
+  --line-strong: rgba(180, 220, 196, 0.28);
+  --fg: #eef4ef;
+  --muted: #a9bcaf;
+  --faint: #7e9288;
+  --brand: #4ed18f;
+  --brand-2: #06a55c;
+  --on-brand: #04211a;
 
-  --fill-weak: rgba(255, 248, 238, 0.04);
-  --fill-soft: rgba(255, 248, 238, 0.06);
-  --fill-strong: rgba(255, 248, 238, 0.1);
-  --fill-hover: rgba(255, 248, 238, 0.1);
+  --fill-weak: rgba(230, 255, 240, 0.04);
+  --fill-soft: rgba(230, 255, 240, 0.06);
+  --fill-strong: rgba(230, 255, 240, 0.1);
+  --fill-hover: rgba(230, 255, 240, 0.1);
 
-  --glass-bg: color-mix(in srgb, #fff8ee 6%, transparent);
-  --glass-strong-bg: color-mix(in srgb, #fff8ee 9%, transparent);
+  --glass-bg: color-mix(in srgb, #eafff2 6%, transparent);
+  --glass-strong-bg: color-mix(in srgb, #eafff2 9%, transparent);
 
-  --hero-radial-a: #2a2119;
+  --hero-radial-a: #12261a;
 
   color-scheme: dark;
 }
@@ -126,7 +135,7 @@
 
   ::selection {
     background: color-mix(in srgb, var(--brand) 40%, transparent);
-    color: #fff;
+    color: var(--on-brand);
   }
 
   :focus-visible {
@@ -184,7 +193,7 @@
   .card-hover:hover {
     transform: translateY(-2px);
     border-color: color-mix(in srgb, var(--brand) 40%, transparent);
-    box-shadow: 0 14px 30px -20px rgb(36 31 26 / 0.45);
+    box-shadow: 0 14px 30px -20px rgb(0 0 0 / 0.42);
   }
 
   .noise::after {
@@ -194,6 +203,21 @@
     pointer-events: none;
     opacity: 0.035;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .text-on-brand {
+    color: var(--on-brand);
+  }
+
+  /* Brand-tinted shadows, derived from the token so a palette change
+     carries them. These replace hardcoded rgba values that were still
+     on the old violet. */
+  .shadow-brand {
+    box-shadow: 0 10px 30px -14px color-mix(in srgb, var(--brand) 55%, transparent);
+  }
+
+  .shadow-brand-lg {
+    box-shadow: 0 16px 44px -16px color-mix(in srgb, var(--brand) 70%, transparent);
   }
 
   .marquee-mask {

@@ -25,7 +25,7 @@ function ExpCard({ exp, index }: ExpCardProps) {
           className={cn(
             "relative flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 transition-colors",
             open || exp.current
-              ? "border-brand bg-brand shadow-[0_0_16px_rgba(139,124,248,0.8)]"
+              ? "border-brand bg-brand shadow-brand"
               : "border-line-strong bg-canvas group-hover:border-brand/60",
           )}
         >

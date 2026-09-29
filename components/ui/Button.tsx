@@ -11,7 +11,7 @@ interface ButtonBaseProps {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-brand text-white shadow-[0_8px_32px_-12px_rgba(139,124,248,0.7)] hover:bg-brand/90 hover:shadow-[0_10px_40px_-10px_rgba(139,124,248,0.85)] active:scale-[0.98]",
+    "bg-brand text-on-brand shadow-brand hover:bg-brand/90 hover:shadow-brand-lg active:scale-[0.98]",
   outline:
     "border border-line-strong text-fg hover:border-brand/60 hover:bg-fill-soft active:scale-[0.98]",
   ghost: "text-muted hover:text-fg hover:bg-fill-soft",

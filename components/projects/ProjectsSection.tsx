@@ -130,50 +130,19 @@ function ProjectModal({
           <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-surface to-transparent" />
         </div>
 
-        <div className="flex min-h-0 flex-1 flex-col gap-7 overflow-y-auto p-7 sm:p-9">
-          <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-brand">
-              {project.tagline}
-            </p>
-            <h3
-              id="project-modal-title"
-              className="mt-2 font-display text-2xl font-semibold text-fg sm:text-3xl"
-            >
-              {project.name}
-            </h3>
-          </div>
-
-          {project.craft ? (
-            <div className="border-l-2 border-brand/50 pl-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
-                Why it matters
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{project.craft}</p>
-            </div>
-          ) : null}
-
-          <div>
-            <h4 className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-faint">
-              What I do
-            </h4>
-            <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
-              {project.features.map((feature) => (
-                <li
-                  key={feature}
-                  className="border-t border-line pt-3 text-sm leading-snug text-muted"
-                >
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="border-t border-line pt-5">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-faint">
-              Disciplines
-            </p>
-            <p className="mt-2 text-sm text-muted">{project.tech.join(" · ")}</p>
-          </div>
+        <div className="min-h-0 flex-1 overflow-y-auto p-7 sm:p-9">
+          <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-brand">
+            {project.tagline}
+          </p>
+          <h3
+            id="project-modal-title"
+            className="mt-2 font-display text-2xl font-semibold text-fg sm:text-3xl"
+          >
+            {project.name}
+          </h3>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
+            {project.craft}
+          </p>
         </div>
 
         <button

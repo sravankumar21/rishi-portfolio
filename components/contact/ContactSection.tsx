@@ -187,7 +187,7 @@ export function ContactSection() {
               <div className="mt-auto space-y-3 pt-1">
                 <button
                   type="submit"
-                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand text-sm font-semibold text-white shadow-[0_8px_32px_-12px_rgba(139,124,248,0.7)] transition-all duration-300 hover:bg-brand/90 active:scale-[0.98]"
+                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand text-sm font-semibold text-on-brand shadow-brand transition-all duration-300 hover:bg-brand/90 active:scale-[0.98]"
                 >
                   <Send className="h-4 w-4" />
                   {sent ? "Opening your email client…" : "Send message"}

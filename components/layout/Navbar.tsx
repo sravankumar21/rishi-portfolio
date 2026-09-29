@@ -80,7 +80,7 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <a
               href="#contact"
-              className="hidden rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:inline-flex"
+              className="hidden rounded-full bg-brand px-4 py-2 text-sm font-semibold text-on-brand transition-opacity hover:opacity-90 sm:inline-flex"
             >
               Let&apos;s talk
             </a>
@@ -151,7 +151,7 @@ export function Navbar() {
               <a
                 href="#contact"
                 onClick={handleSelect}
-                className="mt-3 flex items-center justify-center rounded-2xl bg-brand px-4 py-3 text-sm font-semibold text-white"
+                className="mt-3 flex items-center justify-center rounded-2xl bg-brand px-4 py-3 text-sm font-semibold text-on-brand"
               >
                 Let&apos;s talk
               </a>

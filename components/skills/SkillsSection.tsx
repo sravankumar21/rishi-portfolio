@@ -39,21 +39,6 @@ export function SkillsSection() {
             </Reveal>
           ))}
         </div>
-
-        {/* Primary strengths */}
-        <Reveal delay={0.1} className="mt-5">
-          <div className="card-surface rounded-2xl p-6 sm:p-7">
-            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-brand">
-              Signature strengths
-            </p>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">
-              Garde manger and cold kitchen production, paired with fine-dining
-              plating - extended into fruit and vegetable carving for guest events
-              and banquet production at volume, all run to HACCP food-safety
-              standards.
-            </p>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

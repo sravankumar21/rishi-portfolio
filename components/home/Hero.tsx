@@ -64,7 +64,7 @@ export function Hero() {
             >
               <a
                 href="#projects"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand px-7 text-[15px] font-medium text-white shadow-[0_8px_32px_-12px_rgba(139,124,248,0.7)] transition-all duration-300 hover:bg-brand/90 hover:shadow-[0_10px_40px_-10px_rgba(139,124,248,0.85)] active:scale-[0.98] sm:w-auto"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand px-7 text-[15px] font-medium text-on-brand shadow-brand transition-all duration-300 hover:bg-brand/90 hover:shadow-brand-lg active:scale-[0.98] sm:w-auto"
               >
                 {profile.primaryCta}
                 <ArrowRight className="h-4 w-4" />
