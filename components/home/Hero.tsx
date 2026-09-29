@@ -125,7 +125,7 @@ export function Hero() {
             initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.98 }}
             animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-            className="relative mx-auto hidden w-full max-w-lg md:block lg:max-w-none"
+            className="relative mx-auto w-full max-w-[15rem] sm:max-w-[18rem] md:max-w-md lg:max-w-[26rem]"
           >
             <div
               aria-hidden="true"
@@ -138,7 +138,7 @@ export function Hero() {
                   alt={`Portrait of ${profile.name}`}
                   fill
                   priority
-                  sizes="(max-width: 1024px) 32rem, 44rem"
+                  sizes="(max-width: 640px) 15rem, (max-width: 1024px) 18rem, 26rem"
                   className="object-cover"
                 />
                 <div
