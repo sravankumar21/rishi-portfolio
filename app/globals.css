@@ -48,11 +48,7 @@
   --glass-bg: rgba(255, 253, 249, 0.78);
   --glass-strong-bg: rgba(255, 253, 249, 0.9);
 
-  --text-grad-a: #241f1a;
-  --text-grad-c: var(--brand-2);
-
   --hero-radial-a: #f0e4d2;
-  --bg-grid-opacity: 0.05;
 
   color-scheme: light;
 }
@@ -78,11 +74,7 @@
   --glass-bg: color-mix(in srgb, #fff8ee 6%, transparent);
   --glass-strong-bg: color-mix(in srgb, #fff8ee 9%, transparent);
 
-  --text-grad-a: #fdf8f0;
-  --text-grad-c: var(--brand-2);
-
   --hero-radial-a: #2a2119;
-  --bg-grid-opacity: 0.04;
 
   color-scheme: dark;
 }
@@ -174,18 +166,6 @@
     border: 1px solid var(--line-strong);
   }
 
-  .text-gradient {
-    background: linear-gradient(
-      100deg,
-      var(--text-grad-a) 20%,
-      color-mix(in srgb, var(--brand) 65%, var(--text-grad-a)) 50%,
-      var(--text-grad-c) 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
   /* Opaque card surface — used for static content panels, where
      backdrop blur adds nothing but a dashboard feel. */
   .card-surface {
@@ -214,10 +194,6 @@
     pointer-events: none;
     opacity: 0.035;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  .glow-brand {
-    box-shadow: 0 0 40px -8px color-mix(in srgb, var(--brand) 55%, transparent);
   }
 
   .marquee-mask {

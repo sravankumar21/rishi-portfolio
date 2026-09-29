@@ -39,7 +39,7 @@ export function Hero() {
               className="mt-6 whitespace-nowrap font-display text-[clamp(2rem,4.5vw,4.5rem)] font-semibold leading-[1.05] tracking-tight text-fg"
             >
               {profile.firstName}{" "}
-              <span className="text-gradient">{profile.lastName}</span>
+              <span className="text-brand">{profile.lastName}</span>
             </motion.h1>
 
             <motion.p
