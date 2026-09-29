@@ -61,7 +61,7 @@ function ExpCard({ exp, index }: ExpCardProps) {
                 <p className="flex items-center gap-2 font-display text-base font-semibold text-fg">
                   {exp.role}
                   {exp.current && (
-                    <span className="rounded-full bg-emerald-400/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-emerald-300 ring-1 ring-emerald-400/30">
+                    <span className="rounded-full bg-brand/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-brand ring-1 ring-brand/30">
                       Current
                     </span>
                   )}
