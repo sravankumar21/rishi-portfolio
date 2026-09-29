@@ -62,7 +62,7 @@ export function ContactSection() {
         <SectionHeading
           eyebrow="Enquiries"
           title="Work with me"
-          description="Open to commis chef roles in luxury hotels and resorts, and to private event work. Currently based in Sharjah and open to relocating. Tell me about your kitchen or occasion and I usually reply within a day."
+          description="Open to commis chef roles in hotels and resorts, and to private event work. Currently based in Sharjah and open to relocating. Tell me about your kitchen or occasion and I usually reply within a day."
         />
 
         <div className="mx-auto mt-16 grid max-w-5xl gap-6 lg:grid-cols-[1fr_1.4fr]">
