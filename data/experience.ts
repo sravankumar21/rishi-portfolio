@@ -14,7 +14,7 @@ export const experiences: Experience[] = [
   {
     company: "Al Badayer Retreat by Sharjah Collection",
     role: "Commis Chef",
-    period: "Feb 2025 — Present",
+    period: "Feb 2025 - Present",
     location: "Sharjah, UAE",
     type: "Full-time",
     current: true,
@@ -42,7 +42,7 @@ export const experiences: Experience[] = [
   {
     company: "The Park 5-Star Hotel",
     role: "Commis Chef",
-    period: "Sept 2022 — Dec 2023",
+    period: "Sept 2022 - Dec 2023",
     location: "Chennai, India",
     type: "Full-time",
     summary:
@@ -67,7 +67,7 @@ export const experiences: Experience[] = [
   {
     company: "Country Inn & Suites by Radisson",
     role: "Hospitality & Culinary Trainee",
-    period: "Jan 2021 — Apr 2021",
+    period: "Jan 2021 - Apr 2021",
     location: "Zirakpur, Punjab, India",
     type: "Training Programme",
     summary:

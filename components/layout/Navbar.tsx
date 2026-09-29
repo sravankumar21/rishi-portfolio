@@ -49,7 +49,7 @@ export function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="glass border-x-0 border-t-0">
+      <div className="border-b border-line bg-elevated">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
           <Brand />
 

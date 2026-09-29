@@ -16,12 +16,12 @@ function FeaturedCard({ project, onOpen }: { project: Project; onOpen: () => voi
       className="card-surface card-hover group flex w-full flex-col overflow-hidden rounded-2xl text-left md:flex-row"
     >
       {project.image ? (
-        <div className="relative aspect-[4/5] w-full shrink-0 overflow-hidden md:w-2/5">
+        <div className="relative h-40 w-full shrink-0 overflow-hidden sm:h-48 md:h-56 md:w-1/3">
           <Image
             src={project.image}
             alt={`${project.name}`}
             fill
-            sizes="(max-width: 768px) 100vw, 40vw"
+            sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
           />
           {/* Unifies the stock photography to a single warm cast */}
@@ -33,18 +33,18 @@ function FeaturedCard({ project, onOpen }: { project: Project; onOpen: () => voi
         </div>
       ) : null}
 
-      <div className="flex flex-1 flex-col gap-3 p-6 sm:p-8">
+      <div className="flex flex-1 flex-col gap-2.5 p-5 sm:p-6">
         <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-brand">
           {project.tagline}
         </p>
-        <h3 className="font-display text-xl font-semibold text-fg sm:text-2xl">
+        <h3 className="font-display text-lg font-semibold text-fg sm:text-xl">
           {project.name}
         </h3>
         <p className="max-w-xl text-sm leading-relaxed text-muted">
           {project.description}
         </p>
 
-        <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-brand">
+        <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-brand">
           Read the craft
           <span
             aria-hidden="true"
@@ -209,10 +209,10 @@ export function ProjectsSection() {
         <SectionHeading
           eyebrow="Signature Creations"
           title="The craft behind the plate"
-          description="Four areas of my kitchen craft — from live event showpieces to high-volume banquet production. Select any card to read more."
+          description="Four areas of my kitchen craft - from live event showpieces to high-volume banquet production. Select any card to read more."
         />
 
-        <div className="mt-14 space-y-6">
+        <div className="mt-12 space-y-4">
           {featured.map((project, i) => (
             <Reveal key={project.name} delay={i * 0.06}>
               <FeaturedCard project={project} onOpen={() => openProject(project)} />

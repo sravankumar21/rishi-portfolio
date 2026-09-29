@@ -22,7 +22,7 @@ export function ContactSection() {
     const subject = encodeURIComponent(form.subject || "Hello from your portfolio");
     const body = encodeURIComponent(
       `${form.message && `Hi ${profile.firstName},\n\n${form.message}\n\n`}${
-        form.name ? `— ${form.name}` : ""
+        form.name ? `- ${form.name}` : ""
       }${form.email ? ` · ${form.email}` : ""}`,
     );
     return `mailto:${profile.email}?subject=${subject}&body=${body}`;
@@ -61,7 +61,7 @@ export function ContactSection() {
         <SectionHeading
           eyebrow="Contact"
           title="Let's build something together"
-          description="Have a role, project or idea in mind? My inbox is open — I usually reply within a day."
+          description="Have a role, project or idea in mind? My inbox is open - I usually reply within a day."
         />
 
         <div className="mx-auto mt-16 grid max-w-5xl gap-6 lg:grid-cols-[1fr_1.4fr]">
@@ -112,7 +112,7 @@ export function ContactSection() {
             <div className="card-surface rounded-2xl border-brand/25 p-5">
               <p className="text-sm font-medium text-fg">Based in {profile.location}</p>
               <p className="mt-1.5 text-xs leading-relaxed text-muted">
-                Hiring for a kitchen role, or need a chef for an event? Get in touch — my
+                Hiring for a kitchen role, or need a chef for an event? Get in touch - my
                 full resume is available to download via the{" "}
                 <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
                   resume link
@@ -193,7 +193,7 @@ export function ContactSection() {
                   {sent ? "Opening your email client…" : "Send message"}
                 </button>
                 <p className="text-center text-xs text-faint">
-                  Sends via your email client — or reach me directly at{" "}
+                  Sends via your email client - or reach me directly at{" "}
                   <a href={`mailto:${profile.email}`} className="text-brand hover:underline">
                     {profile.email}
                   </a>

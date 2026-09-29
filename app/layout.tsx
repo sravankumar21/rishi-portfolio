@@ -23,7 +23,7 @@ const baseUrl = "https://rishi-portfolio-roan.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: `${profile.name} — ${profile.role}`,
+    default: `${profile.name} - ${profile.role}`,
     template: `%s · ${profile.name}`,
   },
   description:
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   authors: [{ name: profile.name }],
   creator: profile.name,
   openGraph: {
-    title: `${profile.name} — ${profile.role}`,
+    title: `${profile.name} - ${profile.role}`,
     description:
       "Luxury kitchen specialist with 5-star hotel experience. Expertise in cold kitchen production, fine-dining plating, carving and large-scale banquet execution under HACCP standards.",
     url: baseUrl,
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — ${profile.role}`,
+    title: `${profile.name} - ${profile.role}`,
     description:
       "Luxury kitchen specialist with 5-star hotel experience. Expertise in cold kitchen production, fine-dining plating, carving and large-scale banquet execution under HACCP standards.",
   },

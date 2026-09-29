@@ -2,7 +2,7 @@ import { Heart } from "lucide-react";
 import { profile } from "@/data/profile";
 import { socials } from "@/data/social";
 
-/** Site credit — edit here to change who designed the portfolio. */
+/** Site credit - edit here to change who designed the portfolio. */
 const DESIGNER = {
   name: "Sravan Kumar",
   href: "https://github.com/sravankumar21/",

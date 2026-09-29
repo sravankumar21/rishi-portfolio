@@ -53,7 +53,7 @@
   color-scheme: light;
 }
 
-/* Dark theme — warm charcoal & espresso rather than blue-black. */
+/* Dark theme - warm charcoal & espresso rather than blue-black. */
 :root[data-theme="dark"] {
   --base: #12100e;
   --surface: #191613;
@@ -151,7 +151,7 @@
 }
 
 @layer utilities {
-  /* Glass surfaces — used selectively (nav, floating cards, modals). */
+  /* Glass surfaces - used selectively (nav, floating cards, modals). */
   .glass {
     background: var(--glass-bg);
     backdrop-filter: blur(16px) saturate(140%);
@@ -166,7 +166,7 @@
     border: 1px solid var(--line-strong);
   }
 
-  /* Opaque card surface — used for static content panels, where
+  /* Opaque card surface - used for static content panels, where
      backdrop blur adds nothing but a dashboard feel. */
   .card-surface {
     background: var(--elevated);

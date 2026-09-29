@@ -3,7 +3,7 @@ export interface Education {
   shortInstitution: string;
   degree: string;
   field?: string;
-  /** Optional right-hand meta, e.g. "2019 — 2021". Omit when there's nothing to show. */
+  /** Optional right-hand meta, e.g. "2019 - 2021". Omit when there's nothing to show. */
   period?: string;
   /** Optional grade pill. Omit when there's nothing to show. */
   score?: string;
