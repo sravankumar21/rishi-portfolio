@@ -18,13 +18,13 @@ export function Hero() {
   return (
     <section id="home" className="relative flex min-h-svh items-center overflow-hidden pb-16 pt-32">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:grid-rows-[auto_1fr] lg:gap-x-16 lg:gap-y-0">
           {/* Copy */}
           <motion.div
             variants={staggerContainer(0.1, 0.1)}
             initial="hidden"
             animate="visible"
-            className="flex flex-col items-center text-center lg:items-start lg:text-left"
+            className="flex flex-col items-center text-center lg:col-start-1 lg:row-start-1 lg:items-start lg:text-left"
           >
             <motion.span
               variants={fadeUp}
@@ -48,10 +48,53 @@ export function Hero() {
             >
               {profile.role}
             </motion.p>
+          </motion.div>
 
+          {/* Portrait - sits under the name and role on mobile, and in
+              its own column beside the whole copy block from lg up */}
+          <motion.div
+            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.98 }}
+            animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+            className="relative mx-auto w-full max-w-[15rem] sm:max-w-[18rem] md:max-w-md lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-[26rem] lg:self-center"
+          >
+            <div
+              aria-hidden="true"
+              className="absolute -inset-6 -z-10 rounded-[2rem] bg-brand/15 blur-3xl"
+            />
+            <div className="card-surface relative overflow-hidden rounded-3xl p-2">
+              <div className="relative aspect-square overflow-hidden rounded-2xl">
+                <Image
+                  src={profile.photo}
+                  alt={`Portrait of ${profile.name}`}
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 15rem, (max-width: 1024px) 18rem, 26rem"
+                  className="object-cover"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-canvas/60 via-transparent to-transparent"
+                />
+                <div className="glass absolute bottom-4 left-4 animate-float rounded-full px-3.5 py-2">
+                  <p className="flex items-center gap-1.5 text-xs text-fg">
+                    <MapPin className="h-3.5 w-3.5 text-brand" />
+                    {profile.location}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer(0.1, 0.1)}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col items-center text-center lg:col-start-1 lg:row-start-2 lg:items-start lg:text-left"
+          >
             <motion.p
               variants={fadeUp}
-              className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted sm:text-base"
+              className="mt-0 max-w-2xl text-[15px] leading-relaxed text-muted sm:text-base lg:mt-5"
             >
               {profile.heroIntro} Currently at{" "}
               <span className="text-fg">Al Badayer Retreat, Sharjah</span>, producing
@@ -120,42 +163,6 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Portrait */}
-          <motion.div
-            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.98 }}
-            animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-            className="relative mx-auto w-full max-w-[15rem] sm:max-w-[18rem] md:max-w-md lg:max-w-[26rem]"
-          >
-            <div
-              aria-hidden="true"
-              className="absolute -inset-6 -z-10 rounded-[2rem] bg-brand/15 blur-3xl"
-            />
-            <div className="card-surface relative overflow-hidden rounded-3xl p-2">
-              <div className="relative aspect-square overflow-hidden rounded-2xl">
-                <Image
-                  src={profile.photo}
-                  alt={`Portrait of ${profile.name}`}
-                  fill
-                  priority
-                  sizes="(max-width: 640px) 15rem, (max-width: 1024px) 18rem, 26rem"
-                  className="object-cover"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-canvas/60 via-transparent to-transparent"
-                />
-
-                {/* Floating chip: location */}
-                <div className="glass absolute bottom-4 left-4 animate-float rounded-full px-3.5 py-2">
-                  <p className="flex items-center gap-1.5 text-xs text-fg">
-                    <MapPin className="h-3.5 w-3.5 text-brand" />
-                    {profile.location}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
